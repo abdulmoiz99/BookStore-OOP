@@ -182,10 +182,18 @@ namespace BookStore
                     }
                     if (checkReader == true)
                     {
-                        readers[ReaderIndex].DisplayReaderInformation();
+                        bookStores.DisplayBookStoreInformation();
                     }
                     else Console.WriteLine("Invalid Reader Name");
 
+                }
+                else if (input==8)
+                {
+                    //Remove Book
+                }
+                else if(input==9)
+                {
+                    //Remove User
                 }
                 else Console.WriteLine("Invalid Input");
 

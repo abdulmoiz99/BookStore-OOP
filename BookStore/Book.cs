@@ -13,7 +13,7 @@ namespace BookStore
         static List<int> bookSerials;
         bool status;
 
-        public Book(string bookName, int bookSerial, bool status) 
+        public Book(string bookName, int bookSerial, bool status)
         {
             //if (bookSerials.Contains(bookSerial))
             //{
@@ -21,24 +21,24 @@ namespace BookStore
             //}
             //else
             //{
-                this.bookName = bookName;
-                this.bookSerial = bookSerial;
-                this.status = status;
-                //bookSerials.Add(bookSerial);
+            this.bookName = bookName;
+            this.bookSerial = bookSerial;
+            this.status = status;
+            //bookSerials.Add(bookSerial);
             //}
         }
 
-        public bool IsAvailable(int serialNo) 
+        public bool IsAvailable(int serialNo)
         {
-            bool Avaiable=false;
-            if (serialNo==bookSerial)
+            bool Avaiable = false;
+            if (serialNo == bookSerial)
             {
                 Avaiable = true;
             }
             return Avaiable;
         }
 
-        public void BookRent() 
+        public void BookRent()
         {
             status = false;
         }
@@ -48,7 +48,7 @@ namespace BookStore
             status = true;
         }
 
-        public void DisplayBookInformation() 
+        public void DisplayBookInformation()
         {
             Console.WriteLine();
             Console.WriteLine("Book Information:");
@@ -62,7 +62,7 @@ namespace BookStore
         {
             return bookSerial;
         }
-        public string GetBookName() 
+        public string GetBookName()
         {
             return bookName;
         }

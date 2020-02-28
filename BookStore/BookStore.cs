@@ -11,13 +11,13 @@ namespace BookStore
         List<Book> books;
         List<Reader> readers;
 
-        public BookStore() 
+        public BookStore()
         {
             books = new List<Book>();
             readers = new List<Reader>();
         }
 
-        public void AddReader(string readerName) 
+        public void AddReader(string readerName)
         {
             readers.Add(new Reader(readerName));
         }
@@ -26,21 +26,21 @@ namespace BookStore
         {
             readers.Add(reader);
         }
-      
 
-        public void RemoveReader(Reader reader) 
+
+        public void RemoveReader(Reader reader)
         {
             if (reader.GetRentedBooksCount() > 0)
             {
                 Console.WriteLine("All books must be return to Book Store first!");
             }
-            else 
+            else
             {
                 readers.Remove(reader);
             }
         }
 
-        public void AddBook(string bookName, int bookSerial, bool status) 
+        public void AddBook(string bookName, int bookSerial, bool status)
         {
             books.Add(new Book(bookName, bookSerial, status));
         }
@@ -50,9 +50,9 @@ namespace BookStore
             books.Add(book);
         }
 
-        public void RemoveBook(Book book,int serialNo) 
+        public void RemoveBook(Book book, int serialNo)
         {
-            if (book.IsAvailable(serialNo)==true)
+            if (book.IsAvailable(serialNo) == true)
             {
                 books.Remove(book);
             }
@@ -61,20 +61,20 @@ namespace BookStore
                 Console.WriteLine("Book is not available!");
             }
         }
-        
-        public void RentBook(Book book, Reader reader) 
+
+        public void RentBook(Book book, Reader reader)
         {
             if (books.Contains(book) && readers.Contains(reader))
             {
                 reader.RentBook(book);
             }
-            else 
+            else
             {
                 Console.WriteLine("Invalid reader or book!");
             }
         }
 
-        public void ReturnBook(Book book, Reader reader) 
+        public void ReturnBook(Book book, Reader reader)
         {
             if (books.Contains(book) && readers.Contains(reader))
             {
@@ -85,8 +85,16 @@ namespace BookStore
                 Console.WriteLine("Invalid reader or book!");
             }
         }
+        public void DisplayReaders()
+        {
+            Console.WriteLine("Reader Names:");
+            foreach (Reader reader in readers)
+            {
+                Console.WriteLine(reader.GetReaderName() +"\n");
+            }
+        }
 
-        public void DisplayBookStoreInformation() 
+        public void DisplayBookStoreInformation()
         {
             Console.WriteLine();
             Console.WriteLine("Book Store Information:");
